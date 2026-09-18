@@ -1,0 +1,203 @@
+{
+  "customers": [
+    {
+      "id": "customer-harbor",
+      "name": "Harbor & Pine Market",
+      "email": "orders@harborpine.example",
+      "phone": "(415) 555-0142",
+      "region": "Pacific Northwest",
+      "customerSince": "2024-06-12",
+      "lastOrder": "2026-09-02",
+      "totalOrders": 14,
+      "totalSpend": 18400,
+      "accountManager": "Maya Chen",
+      "tags": [
+        "Key account",
+        "Retail"
+      ],
+      "notes": "Requires plastic-free packaging. Avoid lavender products in seasonal assortments."
+    },
+    {
+      "id": "customer-northstar",
+      "name": "Northstar Hotels",
+      "email": "procurement@northstar.example",
+      "phone": "(415) 555-0188",
+      "region": "West Coast",
+      "customerSince": "2025-02-20",
+      "lastOrder": "2026-08-21",
+      "totalOrders": 8,
+      "totalSpend": 39200,
+      "accountManager": "Jordan Blake",
+      "tags": [
+        "Hospitality"
+      ],
+      "notes": "Needs custom case labels and delivery after 4pm."
+    },
+    {
+      "id": "customer-juniper",
+      "name": "Juniper House",
+      "email": "buying@juniperhouse.example",
+      "phone": "(628) 555-0114",
+      "region": "Northern California",
+      "customerSince": "2023-09-08",
+      "lastOrder": "2026-08-29",
+      "totalOrders": 21,
+      "totalSpend": 52640,
+      "accountManager": "Sofia Reyes",
+      "tags": [
+        "Key account",
+        "Wholesale"
+      ],
+      "notes": "Unscented range only. Certificates of analysis required with every shipment."
+    },
+    {
+      "id": "customer-greenline",
+      "name": "Greenline Grocers",
+      "email": "purchasing@greenline.example",
+      "phone": "(510) 555-0193",
+      "region": "Bay Area",
+      "customerSince": "2026-03-11",
+      "lastOrder": "2026-08-18",
+      "totalOrders": 4,
+      "totalSpend": 12430,
+      "accountManager": "Maya Chen",
+      "tags": [
+        "New account"
+      ],
+      "notes": "Interested in a private-label liquid soap range."
+    },
+    {
+      "id": "customer-coast",
+      "name": "Coast & Clay",
+      "email": "stock@coastclay.example",
+      "phone": "(415) 555-0171",
+      "region": "Central Coast",
+      "customerSince": "2025-05-17",
+      "lastOrder": "2026-07-30",
+      "totalOrders": 6,
+      "totalSpend": 16810,
+      "accountManager": "Jordan Blake",
+      "tags": [
+        "Retail"
+      ],
+      "notes": "Pallet height must remain under 54 inches for warehouse access."
+    },
+    {
+      "id": "customer-field",
+      "name": "Field & Finch",
+      "email": "hello@fieldfinch.example",
+      "phone": "(650) 555-0136",
+      "region": "Mountain West",
+      "customerSince": "2026-07-09",
+      "lastOrder": "2026-08-26",
+      "totalOrders": 2,
+      "totalSpend": 6840,
+      "accountManager": "Sofia Reyes",
+      "tags": [
+        "New account",
+        "Wholesale"
+      ],
+      "notes": "Referred by Harbor & Pine Market."
+    }
+  ],
+  "orders": [
+    {
+      "id": "order-1",
+      "customerId": "customer-harbor",
+      "customerName": "Harbor & Pine Market",
+      "date": "2026-09-09",
+      "time": "09:00",
+      "duration": 60,
+      "product": "Cedar Hand Soap · 240 units",
+      "productionLine": "Line A · Cold process",
+      "status": "scheduled",
+      "value": 2880,
+      "notes": "Use kraft cartons from lot K-44."
+    },
+    {
+      "id": "order-2",
+      "customerId": "customer-northstar",
+      "customerName": "Northstar Hotels",
+      "date": "2026-09-09",
+      "time": "10:30",
+      "duration": 75,
+      "product": "Citrus Dish Soap · 300 units",
+      "productionLine": "Line B · Liquid soap",
+      "status": "in-production",
+      "value": 3450,
+      "notes": ""
+    },
+    {
+      "id": "order-3",
+      "customerId": "customer-juniper",
+      "customerName": "Juniper House",
+      "date": "2026-09-09",
+      "time": "12:30",
+      "duration": 45,
+      "product": "Unscented Bar Soap · 400 units",
+      "productionLine": "Line C · Finishing",
+      "status": "scheduled",
+      "value": 3200,
+      "notes": "Attach certificates of analysis."
+    },
+    {
+      "id": "order-4",
+      "customerId": "customer-greenline",
+      "customerName": "Greenline Grocers",
+      "date": "2026-09-09",
+      "time": "14:00",
+      "duration": 30,
+      "product": "Lavender Hand Soap · 180 units",
+      "productionLine": "Line B · Liquid soap",
+      "status": "scheduled",
+      "value": 2160,
+      "notes": "Private-label sample run."
+    },
+    {
+      "id": "order-5",
+      "customerId": "customer-coast",
+      "customerName": "Coast & Clay",
+      "date": "2026-09-09",
+      "time": "15:30",
+      "duration": 90,
+      "product": "Oat Milk Bar Soap · 500 units",
+      "productionLine": "Line A · Cold process",
+      "status": "cancelled",
+      "value": 4250,
+      "notes": "Cancelled by purchasing team."
+    },
+    {
+      "id": "order-6",
+      "customerId": "customer-field",
+      "customerName": "Field & Finch",
+      "date": "2026-09-10",
+      "time": "11:00",
+      "duration": 75,
+      "product": "Citrus Dish Soap · 300 units",
+      "productionLine": "Line B · Liquid soap",
+      "status": "scheduled",
+      "value": 3450,
+      "notes": ""
+    }
+  ],
+  "tasks": [
+    {
+      "id": "task-1",
+      "title": "Send Greenline private-label quote",
+      "due": "Today, 11:00 AM",
+      "completed": false
+    },
+    {
+      "id": "task-2",
+      "title": "Approve citrus oil purchase order",
+      "due": "Today, 2:00 PM",
+      "completed": false
+    },
+    {
+      "id": "task-3",
+      "title": "Confirm tomorrow's production runs",
+      "due": "Today, 4:30 PM",
+      "completed": false
+    }
+  ]
+}
