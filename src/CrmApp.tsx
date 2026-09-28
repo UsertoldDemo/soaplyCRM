@@ -202,7 +202,7 @@ function App() {
     const phone = String(form.get('phone')).trim()
     const accountManager = String(form.get('accountManager'))
     const notes = String(form.get('notes'))
-    const persistedUpdate = { email, phone, accountManager }
+    const persistedUpdate = { email, phone, accountManager, notes }
     if (!updateStoredData((current) => ({
       ...current,
       customers: current.customers.map((customer) => customer.id === activeCustomer.id
@@ -212,7 +212,7 @@ function App() {
       setToast('Customer could not be saved.')
       return
     }
-    const locallyUpdated = { ...activeCustomer, ...persistedUpdate, notes }
+    const locallyUpdated = { ...activeCustomer, ...persistedUpdate }
     setActiveCustomer(locallyUpdated)
     setData((current) => ({
       ...current,
