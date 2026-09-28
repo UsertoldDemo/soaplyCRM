@@ -124,6 +124,15 @@ function initials(name: string) {
   return name.split(' ').map((part) => part[0]).join('').slice(0, 2)
 }
 
+function findDuplicateOrder(orders: ProductionOrder[], customerId: string, date: string, product: string) {
+  return orders.find((order) => (
+    order.customerId === customerId
+    && order.date === date
+    && order.product === product
+    && order.status !== 'cancelled'
+  ))
+}
+
 function App() {
   const [data, setData] = useState<CrmData>(loadCrmData)
   const [view, setView] = useState<View>('dashboard')
@@ -147,6 +156,7 @@ function App() {
     event.preventDefault()
     const form = new FormData(event.currentTarget)
     const customer = data.customers.find((candidate) => candidate.id === form.get('customerId'))
+    const date = String(form.get('date'))
     const product = String(form.get('product'))
     const productDetails = data.products[product]
     if (!customer || !productDetails) {
@@ -154,11 +164,17 @@ function App() {
       return
     }
 
+    const duplicateOrder = findDuplicateOrder(data.orders, customer.id, date, product)
+    if (duplicateOrder) {
+      setToast(`${customer.name} already has a ${statusLabels[duplicateOrder.status].toLowerCase()} production order for ${product} on ${date} at ${duplicateOrder.time}.`)
+      return
+    }
+
     const order: ProductionOrder = {
       id: crypto.randomUUID(),
       customerId: customer.id,
       customerName: customer.name,
-      date: String(form.get('date')),
+      date,
       time: String(form.get('time')),
       duration: productDetails.duration,
       product,
