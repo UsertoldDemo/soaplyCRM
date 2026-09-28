@@ -66,6 +66,8 @@ type CrmData = {
 type View = 'dashboard' | 'customers'
 
 const studyDate = '2026-09-09'
+
+const normalizePhoneSearch = (value: string) => value.replace(/\D/g, '')
 const storageKey = 'soaply.crm.v1'
 const accountManagers = ['Maya Chen', 'Sofia Reyes', 'Jordan Blake']
 const productionLines = ['Line A · Cold process', 'Line B · Liquid soap', 'Line C · Finishing']
@@ -222,7 +224,16 @@ function App() {
   }
 
   const todayOrders = data.orders.filter((order) => order.date === studyDate)
-  const filteredCustomers = data.customers.filter((customer) => customer.name.toLowerCase().startsWith(query.toLowerCase().trim()))
+  const normalizedQuery = query.toLowerCase().trim()
+  const phoneQuery = normalizePhoneSearch(query)
+  const filteredCustomers = data.customers.filter((customer) => {
+    if (!normalizedQuery) {
+      return true
+    }
+    return customer.name.toLowerCase().includes(normalizedQuery)
+      || customer.email.toLowerCase().includes(normalizedQuery)
+      || (phoneQuery.length > 0 && normalizePhoneSearch(customer.phone).includes(phoneQuery))
+  })
 
   return (
     <div className="crm-shell">
